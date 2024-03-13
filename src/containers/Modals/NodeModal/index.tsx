@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, Stack, Text, ScrollArea, ModalProps, Button } from "@mantine/core";
 import { CodeHighlight } from "@mantine/code-highlight";
 import Editor from "@monaco-editor/react";
-import { VscLock } from "react-icons/vsc";
+// import { VscLock } from "react-icons/vsc";
 import { gaEvent } from "src/lib/utils/gaEvent";
 import { isIframe } from "src/lib/utils/widget";
 import useConfig from "src/store/useConfig";
@@ -34,7 +34,7 @@ export const NodeModal: React.FC<ModalProps> = ({ opened, onClose }) => {
 
   const onUpdate = () => {
     if (!value) return setEditMode(false);
-    if (!isPremium) return;
+    // if (!isPremium) return;
     editContents(path!, value, () => {
       setEditMode(false);
       gaEvent("input", "node contents update");
@@ -49,8 +49,9 @@ export const NodeModal: React.FC<ModalProps> = ({ opened, onClose }) => {
   };
 
   const onEditClick = () => {
-    if (isPremium) return setEditMode(true);
-    setVisible("premium")(true);
+    // if (isPremium) return setEditMode(true);
+    setEditMode(true);
+    // setVisible("premium")(true);
   };
 
   const isEditVisible = React.useMemo(
@@ -105,7 +106,7 @@ export const NodeModal: React.FC<ModalProps> = ({ opened, onClose }) => {
             ) : (
               <Button
                 onClick={onEditClick}
-                leftSection={!isPremium && <VscLock />}
+                // leftSection={!isPremium && <VscLock />}
                 variant="filled"
               >
                 Edit
