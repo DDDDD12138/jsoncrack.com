@@ -8,7 +8,7 @@ import "@mantine/core/styles.css";
 import "@mantine/code-highlight/styles.css";
 import { ThemeProvider } from "styled-components";
 import { SessionContextProvider, Session } from "@supabase/auth-helpers-react";
-import ReactGA from "react-ga4";
+// import ReactGA from "react-ga4";
 import GlobalStyle from "src/constants/globalStyle";
 import { lightTheme } from "src/constants/theme";
 import { supabase } from "src/lib/api/supabase";
@@ -21,7 +21,7 @@ const mantineTheme = createTheme({
 const isDevelopment = process.env.NODE_ENV === "development";
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-ReactGA.initialize(GA_TRACKING_ID, { testMode: isDevelopment });
+// ReactGA.initialize(GA_TRACKING_ID, { testMode: isDevelopment });
 
 const Toaster = dynamic(() => import("react-hot-toast").then(c => c.Toaster));
 const ExternalMode = dynamic(() => import("src/layout/ExternalMode"));
@@ -44,7 +44,7 @@ function JsonCrack({
 
   React.useEffect(() => {
     const handleRouteChange = (page: string) => {
-      ReactGA.send({ hitType: "pageview", page });
+      // ReactGA.send({ hitType: "pageview", page });
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
